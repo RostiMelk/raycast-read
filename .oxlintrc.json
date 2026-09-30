@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": { "correctness": "error" },
+  "env": { "node": true, "es2022": true },
+  "jsPlugins": ["@raycast/eslint-plugin"],
+  "rules": {
+    "@raycast/prefer-ellipsis": "warn",
+    "@raycast/prefer-title-case": "warn",
+    "@raycast/prefer-common-shortcut": "warn",
+    "@raycast/no-reserved-shortcut": "warn",
+    "@raycast/no-ambiguous-platform-shortcut": "warn"
+  }
+}

@@ -119,8 +119,8 @@
   "scripts": {
     "build": "ray build -e dist",
     "dev": "ray develop",
-    "lint": "ray lint",
-    "fix-lint": "ray lint --fix",
+    "lint": "oxlint && prettier --check \"src/**/*.{ts,tsx}\"",
+    "fix-lint": "oxlint --fix && prettier --write \"src/**/*.{ts,tsx}\"",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
@@ -132,10 +132,10 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@raycast/eslint-config": "^2.2.0",
+    "@raycast/eslint-plugin": "^2.2.0",
     "@types/node": "22.19.17",
     "@types/react": "19.0.10",
-    "eslint": "^10.11.0",
+    "oxlint": "^1.86.0",
     "prettier": "^3.9.9",
     "typescript": "~5.9",
     "vitest": "^5.0.2"
