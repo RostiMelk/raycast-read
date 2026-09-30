@@ -1,0 +1,143 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "read-aloud",
+  "title": "Read Aloud",
+  "description": "Read selected text aloud with ElevenLabs voices.",
+  "icon": "icon.png",
+  "author": "RostiMelk",
+  "license": "MIT",
+  "platforms": [
+    "macOS"
+  ],
+  "categories": [
+    "Productivity",
+    "Media"
+  ],
+  "keywords": [
+    "tts",
+    "speak",
+    "voice",
+    "text to speech",
+    "elevenlabs"
+  ],
+  "commands": [
+    {
+      "name": "read-selection",
+      "title": "Read Selection",
+      "subtitle": "ElevenLabs",
+      "description": "Read the selected text aloud. Run it again to stop.",
+      "mode": "no-view"
+    },
+    {
+      "name": "read-clipboard",
+      "title": "Read Clipboard",
+      "subtitle": "ElevenLabs",
+      "description": "Read the text on your clipboard aloud. Run it again to stop.",
+      "mode": "no-view"
+    },
+    {
+      "name": "stop-reading",
+      "title": "Stop Reading",
+      "subtitle": "ElevenLabs",
+      "description": "Stop the audio that is currently playing.",
+      "mode": "no-view"
+    },
+    {
+      "name": "select-voice",
+      "title": "Select Voice",
+      "subtitle": "ElevenLabs",
+      "description": "Browse ElevenLabs voices, preview them, and pick the one used for reading.",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "apiKey",
+      "type": "password",
+      "required": true,
+      "title": "ElevenLabs API Key",
+      "description": "Create one at elevenlabs.io under Developers > API Keys.",
+      "placeholder": "sk_..."
+    },
+    {
+      "name": "model",
+      "type": "dropdown",
+      "required": false,
+      "title": "Model",
+      "description": "Flash starts fastest. Multilingual v2 reads numbers and dates best. Eleven v4 sounds the most natural.",
+      "default": "eleven_flash_v2_5",
+      "data": [
+        {
+          "title": "Eleven Flash v2.5 (Fastest)",
+          "value": "eleven_flash_v2_5"
+        },
+        {
+          "title": "Eleven Multilingual v2 (Stable)",
+          "value": "eleven_multilingual_v2"
+        },
+        {
+          "title": "Eleven v4 (Most Expressive)",
+          "value": "eleven_v4"
+        }
+      ]
+    },
+    {
+      "name": "speed",
+      "type": "dropdown",
+      "required": false,
+      "title": "Speed",
+      "description": "Playback speed. Pitch stays the same.",
+      "default": "1",
+      "data": [
+        {
+          "title": "0.75x",
+          "value": "0.75"
+        },
+        {
+          "title": "1x",
+          "value": "1"
+        },
+        {
+          "title": "1.25x",
+          "value": "1.25"
+        },
+        {
+          "title": "1.5x",
+          "value": "1.5"
+        },
+        {
+          "title": "1.75x",
+          "value": "1.75"
+        },
+        {
+          "title": "2x",
+          "value": "2"
+        }
+      ]
+    }
+  ],
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "lint": "ray lint",
+    "fix-lint": "ray lint --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@raycast/api": "^2.5.3",
+    "@raycast/utils": "^2.3.2",
+    "es-toolkit": "^1.52.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "22.19.17",
+    "@types/react": "19.0.10",
+    "eslint": "^10.11.0",
+    "prettier": "^3.9.9",
+    "typescript": "~5.9",
+    "vitest": "^5.0.2"
+  }
+}
